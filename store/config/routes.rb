@@ -9,22 +9,11 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Defines the root path route ("/"), I will change this to a splash page later
+  root "products#index"
 
   # Products Routes, demo purposes
-  get "/products", to: "products#index"
-
-  get "/products/new", to: "products#new"
-  post "/products", to: "products#create"
-
-  get "/products/:id", to: "products#show"
-
-  get "/products/:id/edit", to: "products#edit"
-  patch "/products/:id", to: "products#update"
-  put "/products/:id", to: "products#update"
-
-  delete "/products/:id", to: "products#destroy"
+  resources :products
 
   # Blog
   get "/blog/:title", to: "blog#show"
