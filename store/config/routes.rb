@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   # Blog
   get "/blog/:title", to: "blog#show"
   get "/blog/:slug", to: "blog#show"
+
+  resources :products do
+    resources :subscribers, only: [:create]
+  end
+
+  resource :unsubscribe, only: [:show]
 end
