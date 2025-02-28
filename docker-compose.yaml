@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  rails:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: store
+    ports:
+      - "0.0.0.0:3000:3000"
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - store-net
+    tty: true
+
+networks:
+  store-net:
