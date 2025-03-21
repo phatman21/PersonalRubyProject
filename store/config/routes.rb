@@ -12,18 +12,17 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/"), I will change this to a splash page later
-  root "products#index"
+  root "welcomes#index"
 
   # Products Routes, demo purposes
-  resources :products
+  # resources :products
 
-  # Blog
-  get "/blog/:title", to: "blog#show"
-  get "/blog/:slug", to: "blog#show"
+  # Admin Dashboard
+  get "/dashboard", to: "dashboards#index"
 
-  resources :products do
-    resources :subscribers, only: [ :create ]
-  end
+  # resources :products do
+  #   resources :subscribers, only: [:create]
+  # end
 
-  resource :unsubscribe, only: [ :show ]
+  resource :unsubscribe, only: [:show]
 end
